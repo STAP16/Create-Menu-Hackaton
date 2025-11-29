@@ -17,6 +17,10 @@ const soundModule = new SoundModule("sound", "Рандомный звук");
 const clicksModule = new ClicksModule("clicks", "test click");
 
 const astroModule = new AstroModule("astroSign", "Астрологический прогноз");
+const callMessageModule = new CallMessageModule(
+  "message",
+  "Рандомное сообщение"
+);
 
 const testBtn = new TestButton("Test", 0, 0);
 testBtn.addButton();
@@ -26,3 +30,4 @@ contextMenu.add(backgroundColorModule);
 contextMenu.add(soundModule);
 contextMenu.add(astroModule);
 contextMenu.add(clicksModule);
+contextMenu.add(callMessageModule);
