@@ -1,7 +1,6 @@
 import "./styles.css";
-import { BackgroundModule } from "./modules/background.module";
 
-import "./styles.css";
+import { BackgroundModule } from "./modules/background.module";
 import { ContextMenu } from "./menu";
 import { TestModule } from "./modules/test.module";
 import { SoundModule } from "./modules/sound.module";
