@@ -16,8 +16,7 @@ document.body.addEventListener('click', ()=>{
     'https://codeskulptor-demos.commondatastorage.googleapis.com/descent/background%20music.mp3', 'https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3',
     'https://codeskulptor-demos.commondatastorage.googleapis.com/pang/arrow.mp3', 'https://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/theygotcha.ogg'
    ]
-const randomSound = Math.floor(Math.random()*(sounds.length-1))
-console.log(randomSound)
-var audio = new Audio('https://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg');
+const randomSound = Math.floor(Math.random()*(sounds.length))
+var audio = new Audio(sounds[randomSound]);
 audio.play();
 })
