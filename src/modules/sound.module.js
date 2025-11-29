@@ -7,7 +7,7 @@ export class SoundModule extends Module {
     this.text = text;
   }
 
-  trigger(event) {
+  trigger() {
     let sounds = ['https://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg', 'https://commondatastorage.googleapis.com/codeskulptor-assets/jump.ogg', 
     'https://codeskulptor-demos.commondatastorage.googleapis.com/descent/background%20music.mp3', 'https://codeskulptor-demos.commondatastorage.googleapis.com/pang/arrow.mp3', 'https://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/theygotcha.ogg']
     const randomSound = Math.floor(Math.random()*(sounds.length))
