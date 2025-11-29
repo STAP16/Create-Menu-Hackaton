@@ -11,6 +11,8 @@ export class SoundModule extends Module {
    let sounds = ['https://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg']
  }
 }
+document.body.addEventListener('click', ()=>{
 
 var audio = new Audio('https://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg');
 audio.play();
+})
