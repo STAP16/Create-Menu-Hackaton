@@ -1,8 +1,10 @@
-import {Module} from '../core/module'
+import { Module } from '../core/module';
 
 export class CallMessageModule extends Module {
-  constructor() {
-    super();
+  constructor(type, text) {
+    super(type, text);
+    this.type = type;
+    this.text = text;
     this.messages = [
       'Вера в себя создает героев!',
       'Никогда не поздно стать тем, кем всегда мечтал!',
@@ -16,27 +18,40 @@ export class CallMessageModule extends Module {
       'Верь в себя — у тебя всё получится!'
     ];
     this.container = null;
+    this.contextMenu = null;
   }
 
-  init() {
+  initContainer() {
+    if (this.container) return;
+
     this.container = document.createElement('div');
     this.container.className = 'call-message-container';
     document.body.append(this.container);
   }
 
-  getCallMessage() {
+  getRandomMessage() {
     return this.messages[Math.floor(Math.random() * this.messages.length)];
   }
 
   showMessage() {
-    if (!this.container) this.init();
+    this.initContainer();
 
-    const messageElement = document.createElement('div');
-    messageElement.className = 'call-message';
-    messageElement.textContent = this.getCallMessage();
+    const messageEl = document.createElement('div');
+    messageEl.className = 'call-message';
+    messageEl.textContent = this.getRandomMessage();
 
-    this.container.append(messageElement);
+    this.container.append(messageEl);
 
-    setTimeout(() => messageElement.remove(), 5000);
+    setTimeout(() => {
+      if (messageEl.parentNode) {
+        messageEl.remove();
+      }
+    }, 5000);
+  }
+
+  trigger() {
+    document.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+    });
   }
 }
