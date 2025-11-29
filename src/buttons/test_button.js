@@ -1,6 +1,6 @@
 import { Button } from "../core/button";
 
-class TestButton extends Button {
+export class TestButton extends Button {
     constructor(text, xPosition, yPosition) {
     super(text, xPosition, yPosition);
     this.text = text;
@@ -20,8 +20,4 @@ class TestButton extends Button {
     document.body.append(btn)
   }
 }
-
-const testBtn = new TestButton ('Test', 0, 0)
-testBtn.addButton()
-
 
