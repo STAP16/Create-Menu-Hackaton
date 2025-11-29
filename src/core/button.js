@@ -13,5 +13,17 @@ export class Button {
       `Метод trigger() должен быть переопределен в дочернем классе`
     );
   }
+
+  addButton (){
+    const btn = document.createElement('button')
+    btn.textContent = this.text
+    btn.style.width = '50px'
+    btn.style.position = 'absolute'
+    btn.style.top = this.yPosition
+    btn.style.left = this.xPosition
+    document.body.append(btn)
+    console.log(typeof this.xPosition)
+  }
+
 }
 
