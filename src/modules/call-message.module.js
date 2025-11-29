@@ -18,7 +18,7 @@ export class CallMessageModule extends Module {
       'Верь в себя — у тебя всё получится!'
     ];
     this.container = null;
-    this.contextMenu = null;
+    this.isInitialized = false;
   }
 
   initContainer() {
@@ -27,6 +27,7 @@ export class CallMessageModule extends Module {
     this.container = document.createElement('div');
     this.container.className = 'call-message-container';
     document.body.append(this.container);
+    this.isInitialized = true;
   }
 
   getRandomMessage() {
@@ -50,8 +51,8 @@ export class CallMessageModule extends Module {
   }
 
   trigger() {
-    document.addEventListener('contextmenu', (e) => {
-      e.preventDefault();
+    document.addEventListener('click', () => {
+      this.showMessage();
     });
   }
 }
