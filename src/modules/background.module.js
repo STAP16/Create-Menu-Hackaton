@@ -1,9 +1,12 @@
 import {Module} from '../core/module'
 
 export class BackgroundModule extends Module {
-    constructor(){
-        super('backgroundColor', 'Рандомный цвет фона');
-    }
+    constructor(type, text) {
+    super(type, text);
+    this.type = type;
+    this.text = text;
+  }
+    
     trigger (){
         console.log('t');
         const rowCode = '0123456789ABCDEF';
