@@ -8,6 +8,9 @@ import { SoundModule } from "./modules/sound.module";
 import { ClicksModule } from "./modules/clicks.module";
 import { TestButton } from "./buttons/test_button";
 import { AstroModule } from "./modules/astro.module";
+import { CallMessageModule } from "./modules/call-message.module";
+{
+}
 
 const contextMenu = new ContextMenu("#menu");
 
