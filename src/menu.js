@@ -1,10 +1,13 @@
-import {Menu} from './core/menu'
+import { Menu } from "./core/menu";
 
 export class ContextMenu extends Menu {
+  constructor(selector) {
+    super(selector);
+    document.body.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+      const openX = event.clientX;
+      const openY = event.clientY;
 
-<<<<<<< HEAD
-}
-=======
       (this.el.style.left = `${openX}px`),
         (this.el.style.top = `${openY}px`),
         this.open();
@@ -27,4 +30,3 @@ export class ContextMenu extends Menu {
     moduleElement.addEventListener("click", module.trigger.bind(module));
   }
 }
->>>>>>> release
