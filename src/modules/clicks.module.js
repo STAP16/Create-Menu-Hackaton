@@ -1,10 +1,6 @@
-import {Module} from '../core/module'
+import { Module } from "../core/module";
 
 export class ClicksModule extends Module {
-<<<<<<< HEAD
-
-}
-=======
   constructor(type, text) {
     super(type, text);
     this.counterStatus = false;
@@ -48,4 +44,3 @@ export class ClicksModule extends Module {
     document.body.append(containerForCounter);
   }
 }
->>>>>>> release
