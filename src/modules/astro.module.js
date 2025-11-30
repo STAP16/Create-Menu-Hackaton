@@ -11,6 +11,9 @@ constructor (type, text){
 }
 trigger(){
 
+
+    document.addEventListener('contextmenu', this.contextMenuNull);
+
     const modalWindow = document.createElement('div');
     modalWindow.className = 'astrology-modal';
     document.body.append(modalWindow);
@@ -98,9 +101,17 @@ trigger(){
     buttonClose.addEventListener('click', ()=>{
        modalWindow.remove();
        resultContainer.remove();
+       document.removeEventListener('contextmenu', this.contextMenuNull);
     });
-}
-    madePrediction(sign, divElement){
+
+     modalWindow.addEventListener('contextmenu', this.contextMenuNull);
+     resultContainer.addEventListener('contextmenu', this.contextMenuNull);
+    }
+contextMenuNull(event){
+    event.preventDefault();
+    event.stopPropagation();
+    };
+madePrediction(sign, divElement){
         divElement.innerHTML = '';
         const predictions = {
             aries:{
@@ -225,7 +236,8 @@ trigger(){
             this.signUser = '';
         });
 
-        divElement.style.display = 'flex';
+        divElement.style.display = 'flex';}
     }
+        
+    
 
-}
