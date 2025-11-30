@@ -4,6 +4,7 @@ import { BackgroundModule } from "./modules/background.module";
 import { ContextMenu } from "./menu";
 import { TestModule } from "./modules/test.module";
 import { SoundModule } from "./modules/sound.module";
+import { ShapeModule } from "./modules/shape.module";
 import { ClicksModule } from "./modules/clicks.module";
 import { TestButton } from "./buttons/test_button";
 import { AstroModule } from "./modules/astro.module";
@@ -26,8 +27,10 @@ const callMessageModule = new CallMessageModule(
 
 const testBtn = new TestButton("Test", 0, 0);
 testBtn.addButton();
+const shapeModule = new ShapeModule("random-shape", "Создать фигуру");
 
 contextMenu.add(testModule);
+contextMenu.add(shapeModule);
 contextMenu.add(backgroundColorModule);
 contextMenu.add(soundModule);
 contextMenu.add(astroModule);
