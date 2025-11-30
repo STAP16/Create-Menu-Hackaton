@@ -3,29 +3,32 @@ import { Menu } from "./core/menu";
 export class ContextMenu extends Menu {
   constructor(selector) {
     super(selector);
-
     document.body.addEventListener("contextmenu", (event) => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+      const menuElSizeData = this.el.getBoundingClientRect();
+      const menuWidth = menuElSizeData.width;
+      const menuHeight = menuElSizeData.height;
+      
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight
       event.preventDefault();
       let openX = event.clientX;
       let openY = event.clientY;
-      if (openX > width - 100) {
-        openX -= 150;
+     
+      if (openX > (windowWidth - menuWidth)) {
+        openX = windowWidth - menuWidth;
       }
       if (openX < 0) {
-        openX += 150;
+        openX = menuWidth;
       }
-      if (openY > height - 40 * 6) {
-        openY -= 150;
+      if (openY > windowHeight - menuHeight) {
+        openY = windowHeight - menuHeight;
       }
-
       (this.el.style.left = `${openX}px`),
         (this.el.style.top = `${openY}px`),
         this.open();
     });
+    
   }
-
   open() {
     if (document.querySelector("canvas")) {
       document.querySelector("canvas").remove();
