@@ -10,18 +10,14 @@ export class ContextMenu extends Menu {
       event.preventDefault();
       let openX = event.clientX;
       let openY = event.clientY;
-
       if (openX > width - 100) {
-        openX -= 140;
+        openX -= 150;
       }
       if (openX < 0) {
-        openX += 140;
+        openX += 150;
       }
-      if (openY > width - 240) {
-        console.log(openY);
-        console.log(width);
-        //Вот тут разберись пж, я вообще не понимаю,
-        //Нужно сделать так, что если часть меню как бы уреазается, оно должно на опрределное кол-во пиксилей вверх идти
+      if (openY > height - 40 * 6) {
+        openY -= 150;
       }
 
       (this.el.style.left = `${openX}px`),
