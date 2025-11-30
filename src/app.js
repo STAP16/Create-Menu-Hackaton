@@ -2,7 +2,6 @@ import "./styles.css";
 
 import { BackgroundModule } from "./modules/background.module";
 import { ContextMenu } from "./menu";
-import { TestModule } from "./modules/test.module";
 import { SoundModule } from "./modules/sound.module";
 import { ShapeModule } from "./modules/shape.module";
 import { ClicksModule } from "./modules/clicks.module";
@@ -14,25 +13,22 @@ import { CallMessageModule } from "./modules/call-message.module";
 
 const contextMenu = new ContextMenu("#menu");
 
-const testModule = new TestModule("test", "Тестовый блок");
 const backgroundColorModule = new BackgroundModule("color", "Поменять цвет");
 const soundModule = new SoundModule("sound", "Рандомный звук");
-const clicksModule = new ClicksModule("clicks", "test click");
-
+const clicksModule = new ClicksModule("clicks", "Считать клики");
 const astroModule = new AstroModule("astroSign", "Астрологический прогноз");
 const callMessageModule = new CallMessageModule(
   "message",
   "Рандомное сообщение"
 );
 
-const testBtn = new TestButton("Test", 0, 0);
-testBtn.addButton();
+// const testBtn = new TestButton("Test", 0, 0);
 const shapeModule = new ShapeModule("random-shape", "Создать фигуру");
 
-contextMenu.add(testModule);
 contextMenu.add(shapeModule);
 contextMenu.add(backgroundColorModule);
 contextMenu.add(soundModule);
 contextMenu.add(astroModule);
 contextMenu.add(clicksModule);
 contextMenu.add(callMessageModule);
+// testBtn.addButton();

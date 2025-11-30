@@ -1,38 +1,46 @@
 import { Module } from "../core/module";
 
 export class ClicksModule extends Module {
+  constructor(type, text) {
+    super(type, text);
+    this.counterStatus = false;
+  }
 
-    constructor(type, text) {
-        super(type, text);
-        this.counterClicks = 0;
-        this.counterStatus = true;
+  trigger() {
+    this.counterStatus = true;
+    this.counterClicks = 0;
+    console.log(this.counterClicks);
 
-    }
+    const element = document.querySelector(".containerForCounter");
 
-    trigger() {
-        setTimeout(() => {            
-            this.counterStatus = false;            
-            this.renderCounterClicks(this.counterClicks)
-            this.counterClicks = 0;
-        }, 3000);
-
-
-        document.body.addEventListener('click', (event) => {
-            if (event && this.counterStatus) {
-                this.counterClicks += 1;                
-            }
-        });
-
-    }
-
-    renderCounterClicks(counterClick) {
-        const containerForCounter = document.createElement('div');
-        containerForCounter.classList.add('containerForCounter');
-        containerForCounter.style.backgroundColor = 'skyblue';
-        containerForCounter.style.display = 'inline-block';
-        containerForCounter.style.padding = '10px';
-        containerForCounter.style.borderRadius = "3px"
-        containerForCounter.textContent = `Количество кликов за 3 секунды ${counterClick}`;
-        document.body.append(containerForCounter);
+    const handleClick = (event) => {
+      if (event.target === document.body) {
+        this.counterClicks += 1;
+        console.log(this.counterClicks);
+      }
     };
+
+    if (element) {
+      element.remove(); // Если елеменет уже на странице и произошел клик, то удаляем его @stap17
+    }
+
+    setTimeout(() => {
+      this.counterStatus = false;
+      this.renderCounterClicks(this.counterClicks);
+      document.body.removeEventListener("click", handleClick, false);
+    }, 3000);
+
+    if (this.counterStatus) {
+      document.body.addEventListener("click", handleClick);
+    }
+  }
+
+  renderCounterClicks(counterClick) {
+    const containerForCounter = document.createElement("div");
+    containerForCounter.classList.add("containerForCounter");
+    containerForCounter.style.backgroundColor = "skyblue";
+    containerForCounter.style.display = "inline-block";
+    containerForCounter.textContent = `Количество кликов за 3 секунды: ${counterClick}`;
+    document.body.append(containerForCounter);
+  }
 }
