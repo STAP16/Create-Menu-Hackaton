@@ -15,6 +15,9 @@ export class ContextMenu extends Menu {
   }
 
   open() {
+    if (document.querySelector("canvas")) {
+      document.querySelector("canvas").remove();
+    }
     this.el.classList.add("open");
   }
   close() {
